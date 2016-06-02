@@ -55,7 +55,7 @@ function getWinner(playerMove,computerMove) {
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     switch(playerMove) {
-    	case 'rock' {
+    	case 'rock':
     		if (computerMove == 'rock') {
     			winner = 'tie';
     			break;
@@ -68,8 +68,7 @@ function getWinner(playerMove,computerMove) {
     			winner = 'player';
     			break;
     		}
-    	}
-    	case 'paper' {
+    	case 'paper':
     		if (computerMove == 'rock') {
     			winner = 'player';
     			break;
@@ -82,8 +81,7 @@ function getWinner(playerMove,computerMove) {
     			winner = 'computer';
     			break;
     		}
-    	}
-    	case 'scissors' {
+    	case 'scissors':
     		if (computerMove == 'rock') {
     			winner = 'computer';
     			break;
@@ -96,7 +94,6 @@ function getWinner(playerMove,computerMove) {
     			winner = 'tie';
     			break;
     		}
-    	}
     }
     return winner;
 }
@@ -107,6 +104,19 @@ function playToFive() {
     var computerWins = 0;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
     /* YOUR CODE HERE */
+    var playerMove;
+    var computerMove;
+    var winner;
+    while (playerWins < 5 && computerWins < 5) {
+    	playerMove = getPlayerMove(null);
+    	computerMove = getComputerMove(null);
+    	winner = getWinner(playerMove, computerMove);
+    	if (winner == 'player') {
+    		playerWins++;
+    	}
+    	else if (winner == 'computer') {
+    		computerWins++;
+    	}
+    }
     return [playerWins, computerWins];
 }
-
